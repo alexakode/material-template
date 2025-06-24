@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Theming Demo</title>
+    <script>
+      // Detect user preferences and select the appropriate CSS file
+      function getThemeCss() {
+        const isDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        const isHighContrast = window.matchMedia(
+          "(prefers-contrast: more)"
+        ).matches;
+        if (isDark && isHighContrast) return "css/dark-hc.css";
+        if (isDark) return "css/dark.css";
+        if (!isDark && isHighContrast) return "css/light-hc.css";
+        return "css/light.css";
+      }
+
+      // Optionally, you can add support for medium contrast if you want
+      // For demo purposes, only default and high contrast are used
+
+      function setThemeClass(theme) {
+        document.body.classList.remove(
+          "light",
+          "dark",
+          "light-high-contrast",
+          "dark-high-contrast",
+          "light-medium-contrast",
+          "dark-medium-contrast"
+        );
+        document.body.classList.add(theme);
+      }
+
+      function themeClassFromCss(cssFile) {
+        if (cssFile.includes("dark-hc")) return "dark-high-contrast";
+        if (cssFile.includes("light-hc")) return "light-high-contrast";
+        if (cssFile.includes("dark-mc")) return "dark-medium-contrast";
+        if (cssFile.includes("light-mc")) return "light-medium-contrast";
+        if (cssFile.includes("dark")) return "dark";
+        return "light";
+      }
+
+      function applyTheme() {
+        const cssFile = getThemeCss();
+        let link = document.getElementById("theme-css");
+        if (!link) {
+          link = document.createElement("link");
+          link.rel = "stylesheet";
+          link.id = "theme-css";
+          document.head.appendChild(link);
+        }
+        link.href = cssFile;
+        setThemeClass(themeClassFromCss(cssFile));
+      }
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", applyTheme);
+      window
+        .matchMedia("(prefers-contrast: more)")
+        .addEventListener("change", applyTheme);
+
+      window.addEventListener("DOMContentLoaded", applyTheme);
+    </script>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        padding: 2rem;
+        transition: background 0.3s, color 0.3s;
+        background-color: var(--md-sys-color-background, rgb(245 250 251));
+        color: var(--md-sys-color-on-background, rgb(23 29 30));
+      }
+      h1 {
+        margin-top: 0;
+        color: var(--md-sys-color-on-primary, rgb(255 255 255));
+        background: var(--md-sys-color-primary, rgb(0 104 116));
+        padding: 0.5rem;
+        border-radius: 4px;
+      }
+      .card {
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s, color 0.3s;
+        background: var(--md-sys-color-secondary-container, rgb(205 231 236));
+        color: var(--md-sys-color-on-secondary-container, rgb(51 75 79));
+      }
+      .note {
+        font-size: 0.95rem;
+        color: var(--md-sys-color-primary, rgb(0 104 116));
+        background: var(--md-sys-color-primary-container, rgb(158 239 253));
+        padding: 0.5rem;
+        border-radius: 4px;
+        margin-top: 2rem;
+      }
+      ul {
+        padding-left: 1.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Theming Demo</h1>
+    <div class="card">
+      <p>
+        This card demonstrates the current theme colors from your CSS files.
+      </p>
+    </div>
+    <ul>
+      <li><strong>Light mode:</strong> Uses <code>css/light.css</code></li>
+      <li><strong>Dark mode:</strong> Uses <code>css/dark.css</code></li>
+      <li>
+        <strong>High contrast:</strong> Uses <code>css/light-hc.css</code> or
+        <code>css/dark-hc.css</code> based on color scheme.
+      </li>
+    </ul>
+    <div class="note">
+      Try switching your system's color scheme or enabling high contrast mode to
+      see the theme change!
+    </div>
+  </body>
+</html>
