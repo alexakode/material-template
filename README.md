@@ -1,0 +1,1 @@
+This template is made based on Material theme colours generated in Figma, exported as CSS files for each colour scheme. Most of the code is generated in Visual Studio Code using copilot. The colour schemes are applied using semantic styling inline in the HTML.
