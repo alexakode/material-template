@@ -47,7 +47,20 @@
     <h1>CSS Theming Demo</h1>
     <div class="card">
       <p>
-        This card demonstrates the current theme colors from your CSS files.
+        This card demonstrates the current theme colors from your CSS files. The
+        colours are imported as CSS files from Figma, using the
+        <a
+          href="https://www.figma.com/community/plugin/1034969338659738588/material-theme-builder"
+          >Material Theme builder</a
+        >. The naming conventions should allow drop-in replacements. While the
+        Material system uses the HCT colour space, CSS (and Figma) does not support that
+        directly, so the colours have been converted in the export. The CSS
+        variables are prefixed with <code>--md-sys-color-</code> to avoid
+        conflicts with other styles. Other documentation exists with more
+        extensive descriptions of the colour system and other usage guidelines.
+        This demo is intended to showcase the basic usage of these colors in a
+        simple environment using rudimentary conditionals based on the user's
+        preferences of colour mode and contrast.
       </p>
     </div>
     <ul>
@@ -55,12 +68,12 @@
       <li><strong>Dark mode:</strong> Uses <code>css/dark.css</code></li>
       <li>
         <strong>High contrast:</strong> Uses <code>css/light-hc.css</code> or
-        <code>css/dark-hc.css</code> based on color scheme.
+        <code>css/dark-hc.css</code> based on colour scheme.
       </li>
     </ul>
     <div class="note">
-      Try switching your system's color scheme or enabling high contrast mode to
-      see the theme change!
+      Try switching your system's colour scheme or enabling high contrast mode
+      to see the theme change!
     </div>
   </body>
 </html>
