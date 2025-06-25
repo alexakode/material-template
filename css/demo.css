@@ -1,44 +1,99 @@
+:root {
+  color-scheme: light dark;
+  --md-sys-color-primary: light-dark(rgb(0, 104, 116), rgb(130, 211, 224));
+  --md-sys-color-on-primary: light-dark(rgb(255, 255, 255), rgb(0, 31, 36));
+  --md-sys-color-primary-container: light-dark(
+    rgb(158, 239, 253),
+    rgb(0, 79, 88)
+  );
+  --md-sys-color-on-primary-container: light-dark(
+    rgb(0, 40, 44),
+    rgb(158, 239, 253)
+  );
+  --md-sys-color-secondary: light-dark(rgb(0, 104, 116), rgb(177, 203, 208));
+  --md-sys-color-on-secondary: light-dark(rgb(255, 255, 255), rgb(5, 31, 35));
+  --md-sys-color-secondary-container: light-dark(
+    rgb(205, 231, 236),
+    rgb(43, 49, 51)
+  );
+  --md-sys-color-on-secondary-container: light-dark(
+    rgb(51, 75, 79),
+    rgb(236, 242, 243)
+  );
+  --md-sys-color-background: light-dark(rgb(245, 250, 251), rgb(23, 29, 30));
+  --md-sys-color-on-background: light-dark(rgb(23, 29, 30), rgb(236, 242, 243));
+}
 
-      body {
-        font-family: system-ui, sans-serif;
-        margin: 0;
-        padding: 2rem;
-        transition: background 0.3s, color 0.3s;
-        background-color: var(--md-sys-color-background, rgb(245 250 251));
-        color: var(--md-sys-color-on-background, rgb(23 29 30));
-        a {
-          color: var(--md-sys-color-primary, rgb(0 104 116));
-          text-decoration: none;
-        }
-        a:hover {
-          color: var(--md-sys-color-surface-tint, rgb(0 104 116));
-          text-decoration: underline;
-        }
-      }
-      h1 {
-        margin-top: 0;
-        color: var(--md-sys-color-on-primary, rgb(255 255 255));
-        background: var(--md-sys-color-primary, rgb(0 104 116));
-        padding: 0.5rem;
-        border-radius: 4px;
-      }
-      .card {
-        padding: 1rem;
-        border-radius: 8px;
-        margin: 1rem 0;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        transition: background 0.3s, color 0.3s;
-        background: var(--md-sys-color-secondary-container, rgb(205 231 236));
-        color: var(--md-sys-color-on-secondary-container, rgb(51 75 79));
-      }
-      .note {
-        font-size: 0.95rem;
-        color: var(--md-sys-color-primary, rgb(0 104 116));
-        background: var(--md-sys-color-primary-container, rgb(158 239 253));
-        padding: 0.5rem;
-        border-radius: 4px;
-        margin-top: 2rem;
-      }
-      ul {
-        padding-left: 1.2em;
-      }
+@media (prefers-contrast: more) {
+  :root {
+    --md-sys-color-primary: light-dark(
+      rgb(0, 0, 0),
+      rgb(255, 255, 255)
+    ); /* Example HC values */
+    --md-sys-color-on-primary: light-dark(rgb(255, 255, 255), rgb(0, 0, 0));
+    --md-sys-color-primary-container: light-dark(
+      rgb(255, 255, 255),
+      rgb(0, 0, 0)
+    );
+    --md-sys-color-on-primary-container: light-dark(
+      rgb(0, 0, 0),
+      rgb(255, 255, 255)
+    );
+    --md-sys-color-secondary: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));
+    --md-sys-color-on-secondary: light-dark(rgb(255, 255, 255), rgb(0, 0, 0));
+    --md-sys-color-secondary-container: light-dark(
+      rgb(255, 255, 255),
+      rgb(0, 0, 0)
+    );
+    --md-sys-color-on-secondary-container: light-dark(
+      rgb(0, 0, 0),
+      rgb(255, 255, 255)
+    );
+    --md-sys-color-background: light-dark(rgb(255, 255, 255), rgb(0, 0, 0));
+    --md-sys-color-on-background: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));
+  }
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 2rem;
+  transition: background 0.3s, color 0.3s;
+  background-color: var(--md-sys-color-background, rgb(245 250 251));
+  color: var(--md-sys-color-on-background, rgb(23 29 30));
+  a {
+    color: var(--md-sys-color-primary, rgb(0 104 116));
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--md-sys-color-surface-tint, rgb(0 104 116));
+    text-decoration: underline;
+  }
+}
+h1 {
+  margin-top: 0;
+  color: var(--md-sys-color-on-primary, rgb(255 255 255));
+  background: var(--md-sys-color-primary, rgb(0 104 116));
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+.card {
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s, color 0.3s;
+  background: var(--md-sys-color-secondary-container, rgb(205 231 236));
+  color: var(--md-sys-color-on-secondary-container, rgb(51 75 79));
+}
+.note {
+  font-size: 0.95rem;
+  color: var(--md-sys-color-primary, rgb(0 104 116));
+  background: var(--md-sys-color-primary-container, rgb(158 239 253));
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-top: 2rem;
+}
+ul {
+  padding-left: 1.2em;
+}
