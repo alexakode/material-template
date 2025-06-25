@@ -27,18 +27,18 @@
         preferences of colour mode and contrast.
       </p>
     </div>
-    <ul>
-      <li><strong>Light mode:</strong> Uses <code>css/light.css</code></li>
-      <li><strong>Dark mode:</strong> Uses <code>css/dark.css</code></li>
-      <li>
-        <strong>High contrast:</strong> Uses <code>css/light-hc.css</code> or
-        <code>css/dark-hc.css</code> based on colour scheme.
-      </li>
-    </ul>
     <p>
       For the sake of this demo, the actual CSS styling for the file is in
-      demo.css, attached to an external colour scheme css file, and a bit of
-      javascript is used to select which css file to use.
+      demo.css,
+      <s
+        >attached to an external colour scheme css file, and a bit of javascript
+        is used to select which css file to use.</s
+      >
+      Edit: after implementing the newer css functions, the javascript is no
+      longer needed. Light and dark themes are now handled by the browser's
+      native support for colour schemes, and high contrast mode is handled by
+      the browser's native support for high contrast mode. The CSS variables are
+      used to apply the correct colours based on the user's preferences.
     </p>
     <div class="note">
       Try switching your system's colour scheme or enabling high contrast mode
