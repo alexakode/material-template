@@ -53,10 +53,10 @@
           href="https://www.figma.com/community/plugin/1034969338659738588/material-theme-builder"
           >Material Theme builder</a
         >. The naming conventions should allow drop-in replacements. While the
-        Material system uses the HCT colour space, CSS (and Figma) does not support that
-        directly, so the colours have been converted in the export. The CSS
-        variables are prefixed with <code>--md-sys-color-</code> to avoid
-        conflicts with other styles. Other documentation exists with more
+        Material system uses the HCT colour space, CSS (and Figma) does not
+        support that directly, so the colours have been converted in the export.
+        The CSS variables are prefixed with <code>--md-sys-color-</code> to
+        avoid conflicts with other styles. Other documentation exists with more
         extensive descriptions of the colour system and other usage guidelines.
         This demo is intended to showcase the basic usage of these colors in a
         simple environment using rudimentary conditionals based on the user's
@@ -71,6 +71,11 @@
         <code>css/dark-hc.css</code> based on colour scheme.
       </li>
     </ul>
+    <p>
+      For the sake of this demo, the actual CSS styling for the file is inline,
+      attached to an external colour scheme css file, and a bit of javascript is
+      used to select which css file to use.
+    </p>
     <div class="note">
       Try switching your system's colour scheme or enabling high contrast mode
       to see the theme change!
